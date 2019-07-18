@@ -1,40 +1,33 @@
-image: codefreshplugins/cfstep-paclair
+image: codefreshplugins/cfstep-image-promotion
 categories:
   - Security
 version: 0.1.0
-description: "Scan docker images with Clair - https://github.com/coreos/clair"
+description: "Step to promote Docker image in Codefresh pipeline"
 keywords:
-  - docker
-  - clair
-  - security
+  - codefresh
+  - registry
 sources:
-  - https://github.com/codefresh-contrib/cfstep-paclair
+  - https://github.com/codefresh-contrib/cfstep-image-promotion
 maintainers:
   - name: Dustin Van Buskirk
     email: dustinb@codefresh.io
-icon: https://cloud.githubusercontent.com/assets/343539/21630811/c5081e5c-d202-11e6-92eb-919d5999c77a.png
+icon: https://cdn.jsdelivr.net/gh/codefresh-io/steps/graduated/push/icon-2.svg
 envs:
-  - name: AZURE_CLIENT_ID
-    description: "Prefix for API to Docker Registry"
-  - name: CLAIR_URL 
-    description: https://clair.domain.com:6060
+  - name: CODEFRESH_API_URL
+    description: Codefresh API URL
+  - name: CF_API_KEY 
+    description: Codefresh API Key
+  - name: CF_BUILD_INITIATOR 
+    description: Codefresh build initiator (defaulted to pipeline executor)
+  - name: CODEFRESH_USERNAME 
+    description: Codefresh Username if different from CF_BUILD_INITIATOR
   - name: IMAGE 
-    description: "Docker Image Name"
-  - name: PROTOCOL 
-    description: "Docker Registry Protocol"
-  - name: REGISTRY 
-    description: "For ECR use `ecr` else use domain name for Docker Registry"
-  - name: REGISTRY_PASSWORD 
-    description: Docker Registry Password 
-  - name: REGISTRY_USERNAME 
-    description: Docker Registry Username 
-  - name: SEVERITY_THRESHOLD
-    description: "critical, high, medium, low, negligible, unknown"
-  - name: TOKEN 
-    description: "Docker Registry Auth Token"
-  - name: TOKEN_TYPE
-    description: "Docker Registry Auth Token Type"
-  - name: TOKEN_URL
-    description: "Docker Registry Auth Token URL"
+    description: Source Docker image tag
+  - name: PROMOTE_IMAGE 
+    description: Docker image name to Promote (if different from IMAGE) 
+  - name: PROMOTE_TAG 
+    description: Docker image tag to Promote (if different from TAG) 
+  - name: REGISTRY
+    description: Docker registry name as known in Codefresh
   - name: TAG 
-    description: "Docker Image Tag"
+    description: Source Docker image name
