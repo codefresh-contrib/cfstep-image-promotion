@@ -1,2 +1,2 @@
-# cfstep-image-promotion
+# WIP cfstep-image-promotion
 Promotes Codefresh built Docker image
